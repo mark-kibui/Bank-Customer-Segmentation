@@ -47,29 +47,10 @@ The K-means algorithm provided clusters of customers, each with unique character
 - Validate the segments against business objectives and customer data.
 - Deploy the segmentation model for operational use by the bank.
 
-## Requirements
+### Requirements
 
 - Python 3.x
 - Libraries: `pandas`, `numpy`, `matplotlib`, `scikit-learn`, `seaborn`
-
-## How to Run
-
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/mark-kibui/Bank-Customer-Segmentation.git
-    ```
-2. Install the required libraries:
-    ```bash
-    pip install -r requirements.txt
-    ```
-3. Run the main script to perform clustering:
-    ```bash
-    python segmentation.py
-    ```
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
