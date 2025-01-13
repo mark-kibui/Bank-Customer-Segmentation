@@ -25,13 +25,47 @@ The dataset contains various customer attributes, such as:
 - Normalizing or scaling numerical features for clustering.
 
 ### 2. Feature Engineering
-- Selected features based on domain knowledge.
-- Created new features or transformed existing ones for better clustering results.
+To enhance the dataset and improve the model's performance, the following features were engineered:
+
+1. **Age**  
+   - **Description**: Age of the customer based on the current year.  
+   - **Calculation**: Subtracted the customer's year of birth (from the dataset) from the current year to compute the age.  
+   - **Purpose**: Helps understand the demographic distribution and behavior patterns across different age groups.
+
+2. **Ave_Transaction**  
+   - **Description**: Average transaction amount for each customer.  
+   - **Calculation**: Aggregated the transaction amounts by `CustomerID` and divided by the total number of transactions for that customer.  
+   - **Purpose**: Identifies the spending behavior of customers, providing insights into high-value and low-value customers.
+
+3. **Transaction_frequency**  
+   - **Description**: Total number of transactions made by each customer.  
+   - **Calculation**: Grouped transactions by `CustomerID` and calculated the count of transactions per customer.  
+   - **Purpose**: Highlights customer engagement levels and frequency of interactions with the business.
 
 ### 3. Clustering Model: K-means
 - Used **K-means clustering** to segment customers.
-- **Elbow Method**: Applied to determine the optimal number of clusters by plotting the within-cluster sum of squares (WSS) against the number of clusters.
-- **Silhouette Score**: Calculated to evaluate the quality of the clusters. A higher silhouette score indicates better-defined clusters, with greater separation between groups.
+- **Elbow Method**: Applied to determine the optimal number of clusters by plotting the within-cluster sum of squares against the number of clusters. 6 were chosen based on the plot.
+- Next the clusters were profiled. This involves analyzing the average value of features in each cluster to understand the key characteristics of each customer group. Below were the insights
+
+**Insights**
+
+- **Cluster Separation:**
+Clusters 0, 1, and 2 appear to be relatively close to each other in the PCA space, suggesting some degree of similarity among these customer segments.
+- **Outlier Clusters:**
+Cluster 4 and Cluster 5 seem to be more distinct and separated from the other clusters, potentially indicating unique customer behaviors or characteristics.
+- **Cluster Density:**
+The density of points within each cluster can provide insights into the homogeneity or heterogeneity of the customer segments. For instance, if a cluster has a high density of points, it suggests that the customers within that segment are relatively similar to each other.
+
+Below is the visualization of the silhouette analysis for the clustering results:
+
+![Silhouette Analysis](images/Silhouette%20Analysis.png)
+
+**Clusters with Wide Silhouette Bars**
+- The clusters with wider bars (more data points) contribute significantly to the overall clustering structure.
+
+- Some data points (red bars and parts of other clusters) have negative silhouette values, indicating that they might be misclassified or better suited to another cluster.
+
+- The average silhouette score (0.41) indicates that most points are reasonably well-clustered, though there is room for improvement.
 
 ## Results
 
@@ -43,13 +77,12 @@ The K-means algorithm provided clusters of customers, each with unique character
 
 ## Next Steps
 
-- Refine the clustering model with alternative techniques if necessary (e.g., DBSCAN, hierarchical clustering).
+- Refine the clustering model by cleaning the data further.
 - Validate the segments against business objectives and customer data.
-- Deploy the segmentation model for operational use by the bank.
+- Finally, deploy the segmentation model for operational use by the bank.
 
 ### Requirements
 
-- Python 3.x
 - Libraries: `pandas`, `numpy`, `matplotlib`, `scikit-learn`, `seaborn`
 
 ---
