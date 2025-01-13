@@ -58,7 +58,7 @@ The density of points within each cluster can provide insights into the homogene
 
 Below is the visualization of the silhouette analysis for the clustering results:
 
-![Silhouette Analysis](images/Silhouette_Analysis.png)
+![Silhouette Analysis](Assets/Silhouette_Analysis.png)
 
 **Clusters with Wide Silhouette Bars**
 - The clusters with wider bars (more data points) contribute significantly to the overall clustering structure.
