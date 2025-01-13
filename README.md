@@ -45,6 +45,9 @@ To enhance the dataset and improve the model's performance, the following featur
 ### 3. Clustering Model: K-means
 - Used **K-means clustering** to segment customers.
 - **Elbow Method**: Applied to determine the optimal number of clusters by plotting the within-cluster sum of squares against the number of clusters. 6 were chosen based on the plot.
+
+![Elbow_Method](Assets/Elbow_Method.png)
+
 - Next the clusters were profiled. This involves analyzing the average value of features in each cluster to understand the key characteristics of each customer group. Below were the insights
 
 **Insights**
